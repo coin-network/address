@@ -1,6 +1,13 @@
 {
 	"comment": "",
 	"ignore": "test",
-	"package": [],
+	"package": [
+		{
+			"checksumSHA1": "y/oIaxq2d3WPizRZfVjo8RCRYTU=",
+			"path": "golang.org/x/crypto/ripemd160",
+			"revision": "cb497ae8f18e3c55f81bc9f3876c8f4c3d8a2813",
+			"revisionTime": "2017-01-04T23:06:24Z"
+		}
+	],
 	"rootPath": "github.com/coin-network/address"
 }

@@ -1,4 +1,4 @@
-package address
+package main
 
 // see http://safecurves.cr.yp.to/
 // see https://github.com/vsergeev/btckeygenie
@@ -7,13 +7,14 @@ package address
 import (
   "github.com/coin-network/curve"
 
+  "golang.org/x/crypto/ripemd160"
+
   "crypto/rand"
   "crypto/ecdsa"
 	"crypto/elliptic"
-	"encoding/base64"
+	//"encoding/base64"
 	"fmt"
   "bytes"
-  "crypto/ripemd160"
   "crypto/sha256"
   "math/big"
   "strings"
@@ -219,9 +220,10 @@ func (curve *KoblitzCurve) Decompress(x *big.Int, ybit bool) (*big.Int, error) {
   }
   // FIXME converts a 32-byte byte slice to a Bitcoin private key and derives the corresponding public key.
   func (priv *PrivateKey) FromBytes(b []byte) (err error) {
+
     if len(b) != 32 {
       return fmt.Errorf("Invalid private key bytes length %d, expected 32.", len(b))
-    }func (priv *PrivateKey) FromBytes(b []byte) (err error) {
+    }
 
     priv.D = new(big.Int).SetBytes(b)
 
