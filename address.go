@@ -1,17 +1,15 @@
-package main
+// Copyright 2017 The coin-network developers
+// License: MIT
 
-// see http://safecurves.cr.yp.to/
-// see https://github.com/vsergeev/btckeygenie
-// see https://godoc.org/github.com/decred/dcrd/dcrec/secp256k1
+package main
 
 import (
   "github.com/coin-network/curve"
-  "crypto/rand"
   "crypto/ecdsa"
-	"crypto/elliptic"
 	"fmt"
 )
 
+type PublicKey ecdsa.PublicKey
 type PrivateKey ecdsa.PrivateKey
 
 func main() {
@@ -33,4 +31,7 @@ func main() {
   fmt.Println(pubkey.Y)
 
   fmt.Println("-------")
+  fmt.Println(" New Address ")
+  address := privkey.PubKey().ToAddress()
+  fmt.Println(address)
 }
